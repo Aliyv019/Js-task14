@@ -33,12 +33,26 @@ add_btn.addEventListener('click',input_enter)
 input.addEventListener('keypress',()=>{if(event.keyCode===13){input_enter()}})
 
 function editTodoItem(index,listItem){
-    const newTodo=prompt("enter your new ToDo")
-    if(newTodo!==null && newTodo.trim()!==''){
-        arr[index]=newTodo
-        const toDotext=listItem.querySelector('span')
-        toDotext.textContent=newTodo
-    }
+    const edit_input=document.createElement('input')
+    edit_input.classList='edit_input'
+    const save_btn=document.createElement('button')
+    save_btn.classList='save_btn'
+    const toDotext=listItem.querySelector('span')
+    const buttons=listItem.querySelector('.buttons')
+    toDotext.style.display='none'
+    buttons.style.display='none'
+    const edit_div=document.createElement('div')
+    edit_div.classList='editlistItem'
+    listItem.appendChild(edit_div)
+    edit_div.appendChild(edit_input)
+    edit_div.appendChild(save_btn)
+    console.log("salam");
+
+    // if(edit_input.value!==null && edit_input.value.trim()!==''){
+    //     arr[index]=edit_input.value
+    //     const toDotext=listItem.querySelector('span')
+    //     toDotext.textContent=input.value
+    // }
 }
 function deleteTodoItem(index,listItem){
     arr.splice(index,1)
